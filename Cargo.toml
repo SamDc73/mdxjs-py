@@ -1,10 +1,11 @@
 [package]
 name = "mdxjs_py"
 version = "0.1.0-alpha.1"
+edition = "2021"
 description = "Python bindings for mdxjs-rs - Fast MDX to JavaScript compilation"
 license = "MIT"
-repository = "https://github.com/samdc73/mdxjs-py"
-homepage = "https://github.com/samdc73/mdxjs-py"
+repository = "https://github.com/SamDc73/mdxjs-py"
+homepage = "https://github.com/SamDc73/mdxjs-py"
 readme = "README.md"
 keywords = ["mdx", "markdown", "python", "binding"]
 categories = ["text-processing", "compilers"]
