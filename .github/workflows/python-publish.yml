@@ -9,8 +9,9 @@
 name: mdxjs-py
 
 on:
+  workflow_dispatch:
   release:
-    types: [published]
+    types: [published, prereleased]
 
 permissions:
   contents: read
