@@ -18,29 +18,21 @@ permissions:
 jobs:
   release-build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+    # Using maturin-action; no explicit Python matrix
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - uses: PyO3/maturin-action@v1
         with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Build release distributions
-        run: |
-          python -m pip install maturin
-          maturin build --release --out dist
+          command: build
+          manylinux: 2014
+          args: --release -f --out dist
 
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
-          name: release-dists-${{ matrix.python-version }}
+          name: release-dists
           path: dist/
 
 
